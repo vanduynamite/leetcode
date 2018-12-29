@@ -22,27 +22,31 @@ end
 # Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
 # Output: 7 -> 0 -> 8
 # Explanation: 342 + 465 = 807.
-
+require 'byebug'
 def add_two_numbers(l1, l2)
 
-  l3 = ListNode.new(l1.val + l2.val)
+  head = ListNode.new(0)
+  l3 = head
+  rem = 0
 
-  if l3.val >= 10
-    l1.next ? l1.next.val = l1.next.val + 1 : l1.next = ListNode.new(1)
-    l3.val %= 10
+  until l1 == nil && l2 == nil
+    sum = (l1 ? l1.val : 0) + (l2 ? l2.val : 0) + rem
+    l3.val = sum % 10
+    rem = sum > 9 ? 1 : 0
+
+    l1 = l1 ? l1.next : nil
+    l2 = l2 ? l2.next : nil
+
+    if l1 || l2
+      l3.next = ListNode.new(0)
+      l3 = l3.next
+    end
+
   end
 
-  if l1.next && l2.next
-    l3.next = add_two_numbers(l1.next, l2.next)
-  elsif l1.next
-    l3.next = add_two_numbers(l1.next, ListNode.new(0))
-  elsif l2.next
-    l3.next = add_two_numbers(ListNode.new(0), l2.next)
-  else
-    l3.next = nil
-  end
+  l3.next = ListNode.new(1) if rem == 1
 
-  l3
+  head
 
 end
 
@@ -54,9 +58,9 @@ l2 = ListNode.new(5)
 l2.next = ListNode.new(6)
 l2.next.next = ListNode.new(4)
 
-# l1 = ListNode.new(9)
-# l1.next = ListNode.new(9)
-#
-# l2 = ListNode.new(9)
+l1 = ListNode.new(9)
+l1.next = ListNode.new(9)
+
+l2 = ListNode.new(9)
 
 p add_two_numbers(l1, l2)
