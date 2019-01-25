@@ -4,6 +4,8 @@
 const strToInt = (str) => {
 
   '0'.charCodeAt(0);
+
+  // incomplete
 };
 
 const intToStr = (int) => {
