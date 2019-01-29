@@ -1,4 +1,7 @@
+global.count = 0;
+
 const makeChange = (total, arr) => {
+  count++;
   const results = [];
   if (total === 0) return [results];
   if (total !== 0 && arr.length === 0) return results;
@@ -15,7 +18,9 @@ const makeChange = (total, arr) => {
   return results;
 };
 
+console.log(count);
 console.log(makeChange(12, [2,3,7]));
+console.log(count);
 // console.log(makeChange(12, [1,2,3,6,12]));
 
 
