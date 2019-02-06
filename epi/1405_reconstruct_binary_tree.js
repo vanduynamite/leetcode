@@ -21,7 +21,7 @@ class Node {
 // };
 
 
-// this one is O(n)!
+// this one is O(n)
 const reconstructBST = preorder => {
   let i = 0;
 
