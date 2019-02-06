@@ -2,9 +2,7 @@
 class Node {
   constructor(val) {
     this.val = val;
-    this.children = {
-      'k': new Node('k'),
-    };
+    this.children = {};
   }
 }
 
