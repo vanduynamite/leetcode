@@ -12,7 +12,6 @@ var lengthOfLongestSubstring = function(s) {
         left++;
       }
     } else if (i - left + 1 > best) {
-      // console.log(left, i);
       best = i - left + 1;
     }
     chars.add(s[i]);
