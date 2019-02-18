@@ -3,14 +3,13 @@ const straight = (arr, k) => {
   const hashCount = {};
   let total = arr.length;
   arr.sort((a, b) => a - b);
+
   for (let i = 0; i < arr.length; i++) {
     if (!hashCount[arr[i]]) hashCount[arr[i]] = 0;
     hashCount[arr[i]]++;
   }
-  console.log(arr);
+
   for (let i = 0; i < arr.length; i++) {
-    console.log(hashCount, total);
-    console.log(arr[i]);
     if (total === 0) return true;
 
     let j = 0, valid = true;
