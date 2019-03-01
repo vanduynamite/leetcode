@@ -1,4 +1,6 @@
 
+// doesn't work yet, need to walk along a path until the value changes
+
 const searchRotatedArray = (arr, target) => {
 
   let left = 0;
