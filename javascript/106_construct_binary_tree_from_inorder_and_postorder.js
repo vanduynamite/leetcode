@@ -8,9 +8,8 @@ const buildTree = (inorder, postorder) => {
   const lookup = {};
   for (let i = 0; i < inorder.length; i++) lookup[inorder[i]] = i;
 
-  // sending indices instead of slices to keep time complexity down again
+  // send indices instead of slices to keep time complexity down
   const rebuildTreeHelper = (inLeft, inRight, postLeft, postRight) => {
-
     if (inRight - inLeft === 1) return new TreeNode(inorder[inLeft]);
     if (inRight - inLeft <= 0) return null;
 
